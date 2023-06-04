@@ -40,7 +40,7 @@ Imagine you are working on a project where you have to process customer data and
     Docker build .
 - It will take few seconds to build the image. Wait till the command prompt is ready.
 - Next run Docker images.
-- Copy the IMAGE ID rendered from the above command. Say the IMAGE ID is 33fe87f6722b.
+- Copy the IMAGE ID rendered from the above command. Say the IMAGE ID is 33fe87f6722b for this setup guide.
 - Run docker run <IMAGE ID>. In our case it should be docker run 33fe87f6722b.
 - Check the logs rendered. If there are no errors that means the Python script has run successfully.
 - Next a Docker nteractive terminal to verify the files.
