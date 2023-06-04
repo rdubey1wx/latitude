@@ -80,7 +80,6 @@ def create_customer_datasets(customer_obj,customer_attributes):
     try:
         CustomerDF = [customer_obj.create_customer_datasets(x) for x in customer_attributes][0]
         Path = create_os_path("/output/")
-        print(Path)
         FileName = Path + "customer_details_" + UUID + ".csv"
         CustomerDF.to_csv(FileName,index=False)
         logging.info("Customer csv file created successfully.")
