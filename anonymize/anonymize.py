@@ -79,7 +79,7 @@ def create_customer_datasets(customer_obj,customer_attributes):
     """
     try:
         CustomerDF = [customer_obj.create_customer_datasets(x) for x in customer_attributes][0]
-        Path = create_os_path("/anonymize/output/")
+        Path = create_os_path("/output/")
         print(Path)
         FileName = Path + "customer_details_" + UUID + ".csv"
         CustomerDF.to_csv(FileName,index=False)
@@ -104,7 +104,7 @@ def anonymize_customer_data(customer_obj,anonymize_column_list,csv_FileName):
     try:
         for attr in anonymize_column_list:
             CustomerDF[attr] = customer_obj.anonymize_series(CustomerDF[attr])
-        Path = create_os_path("/anonymize/hashed/")
+        Path = create_os_path("/hashed/")
         FileName = Path +  "customer_details_anonymised_" + UUID + ".csv"
         CustomerDF.to_csv(FileName,index=False)
         logging.info("Customer File anonymized successfully.")
@@ -114,7 +114,7 @@ def anonymize_customer_data(customer_obj,anonymize_column_list,csv_FileName):
 
 
 if __name__ == "__main__":
-    YmlPath=os.getcwd() + "/anonymize/config.yaml"
+    YmlPath=os.getcwd() + "/config.yaml"
     try:
         with open(YmlPath) as f:
             yml_dict = yaml.safe_load(f)
